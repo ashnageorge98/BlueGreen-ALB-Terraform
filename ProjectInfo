@@ -1,0 +1,31 @@
+Resources
+    Main.tf 
+    - Data sources - Availability Zones, AMI Image
+    - VPC
+    - Security Group for Application
+    - Security Group for Load Balancer
+    - Load Balancer
+    - Load Balancer Listener
+    - random_pet for generating a random string
+
+    Blu.tf
+    - AWS Instance with file content - version 1.0
+    - Load Balancer Target Group
+    - Load Balancer Target Group Attachment
+
+    Green.tf
+    - AWS instance with file content - version 1.1
+    - Load Balancer Target Group
+    - Load Balancer Target Group Attachment
+
+Feature Toggles for Traffic Routing 
+    - Feature Toggles also know as feature flags is technique to controlling the exposure. In load Balancers, 
+    they gradually allow to shift traffic between environments.
+
+Resources 
+Foreward action with two weighted target group.
+    - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
+
+
+
+
