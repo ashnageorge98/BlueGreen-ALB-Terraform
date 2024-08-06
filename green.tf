@@ -12,10 +12,6 @@ resource "aws_instance" "green" {
   tags = {
     Name = "green-${count.index}"
   }
-   lifecycle {
-    create_before_destroy = true
-    prevent_destroy       = var.stop_green_instances
-  } 
 }
 
 resource "aws_lb_target_group" "green" {
@@ -37,18 +33,6 @@ resource "aws_lb_target_group_attachment" "green" {
   target_group_arn = aws_lb_target_group.green.arn
   target_id        = aws_instance.green[count.index].id
   port             = 80
-  depends_on = [aws_instance_state.green]
 }
 
-variable "stop_green_instances" {
-  description = "Flag to stop green environment instances"
-  type        = bool
-  default     = false
-}
-
-resource "aws_instance_state" "green" {
-  count        = var.enable_green_env ? var.green_instance_count : 0
-  instance_id  = aws_instance.green[count.index].id
-  instance_state = var.stop_green_instances ? "stopped" : "running"
-}
 
