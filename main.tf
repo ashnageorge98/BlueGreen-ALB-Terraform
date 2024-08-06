@@ -1,5 +1,6 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
+# readme file : https://developer.hashicorp.com/terraform/tutorials/aws/blue-green-canary-tests-deployments
 
 provider "aws" {
   region = var.region
@@ -97,5 +98,5 @@ resource "aws_lb_listener" "app" {
           duration = 1
         }
       }
-}
+  }
 }
